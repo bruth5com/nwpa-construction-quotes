@@ -71,7 +71,6 @@
       --light: #e2ddd6;
       --white: #ffffff;
       --radius: 6px;
-      --gold-dark: #89671d;
     }
     html { scroll-behavior: smooth; }
     body { font-family: 'Lato', sans-serif; background: var(--offwhite); color: var(--navy); font-size: 16px; line-height: 1.6; }
@@ -96,7 +95,7 @@
 
     .form-section { background: var(--white); border-top: 4px solid var(--gold); }
     .form-inner { max-width: 680px; margin: 0 auto; padding: 56px 24px; }
-    .section-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 8px; }
+    .section-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
     .form-inner h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(1.8rem, 5vw, 2.6rem); color: var(--navy); line-height: 1.1; margin-bottom: 8px; }
     .form-inner .sub { color: var(--mid); font-size: 0.95rem; margin-bottom: 32px; }
     .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
@@ -143,6 +142,10 @@
     .svc-card { background: var(--offwhite); border-radius: var(--radius); border-left: 3px solid var(--gold); padding: 26px 24px; }
     .svc-card h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; letter-spacing: 0.04em; color: var(--navy); margin-bottom: 8px; }
     .svc-card p { font-size: 0.88rem; color: var(--mid); line-height: 1.6; }
+    .svc-card { display: flex; flex-direction: column; }
+    .svc-link { margin-top: 12px; color: var(--gold); font-weight: 700; font-size: 0.85rem; text-decoration: none; letter-spacing: 0.02em; }
+    .svc-link:hover, .svc-link:focus { text-decoration: underline; outline: none; }
+    .svc-link:focus { outline: 3px solid var(--gold); outline-offset: 2px; }
 
     /* BLOG LINKS */
     .blog-section { background: var(--offwhite); padding: 60px 24px; border-top: 1px solid var(--light); }
@@ -200,9 +203,9 @@
 
   <main>
 
-    <section class="hero" aria-labelledby="hero-heading">
+    <section class="hero">
       <div class="hero-eyebrow">NW Pennsylvania Lead Network</div>
-      <h1 id="hero-heading">Amish Contractors Butler, PA.<br /><em>Remodeling. Decks. Pole Barns.</em><br />Free Estimates.</h1>
+      <h1>Amish Contractors Butler, PA.<br /><em>Remodeling. Decks. Pole Barns.</em><br />Free Estimates.</h1>
       <p>Kitchen and bathroom remodeling, deck building, siding, pole barns &amp; more — get matched with skilled local contractors, including trusted Amish craftsmen, in Butler and surrounding NW Pennsylvania counties. Free estimates, no pressure.</p>
       <div class="cta-group">
         <a href="tel:8142098304" class="btn-primary">📞 Call (814) 209-8304</a>
@@ -218,10 +221,10 @@
       <div class="county-strip">Butler · Venango · Crawford · Warren · Forest · Clarion · Mercer</div>
     </section>
 
-    <section class="form-section" id="get-estimate" aria-labelledby="form-heading">
+    <section class="form-section" id="get-estimate">
       <div class="form-inner">
         <div class="section-label">Get Started</div>
-        <h2 id="form-heading">Request Your Free Estimate</h2>
+        <h2>Request Your Free Estimate</h2>
         <p class="sub">Serving Butler County and all of NW Pennsylvania — Venango, Crawford, Warren, Forest, Clarion &amp; Mercer Counties. A local contractor will follow up within 24 hours.</p>
         <form action="https://formspree.io/f/xbdeddrr" method="POST">
           <div class="form-grid">
@@ -279,9 +282,9 @@
       </div>
     </div>
 
-    <section class="why-section" aria-labelledby="why-heading">
+    <section class="why-section">
       <div class="section-label">Why Homeowners Trust Us</div>
-      <h2 id="why-heading" style="font-family:'Bebas Neue',sans-serif;font-size:clamp(1.8rem,5vw,2.6rem);color:var(--navy);text-align:center;margin-bottom:40px;">Built for Northwest Pennsylvania</h2>
+      <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(1.8rem,5vw,2.6rem);color:var(--navy);text-align:center;margin-bottom:40px;">Built for Northwest Pennsylvania</h2>
       <div class="why-grid">
         <div class="why-card"><div class="why-icon" aria-hidden="true">🏠</div><h3>Local Knowledge</h3><p>We know Western PA weather and what local homes need. Our contractors have worked in Butler County and across all 7 NW Pennsylvania counties for decades.</p></div>
         <div class="why-card"><div class="why-icon" aria-hidden="true">🔨</div><h3>Quality Craftsmanship</h3><p>As Amish Contractors Butler, PA homeowners ask for most, we connect you with crews who take pride in deck builds and full remodels and stand behind their work.</p></div>
@@ -290,25 +293,31 @@
       </div>
     </section>
 
-    <section class="svc-section" aria-labelledby="svc-heading">
+    <section class="svc-section">
       <div class="section-label">What We Build</div>
-      <h2 id="svc-heading" style="font-family:'Bebas Neue',sans-serif;font-size:clamp(1.8rem,5vw,2.6rem);color:var(--navy);text-align:center;margin-bottom:40px;">Remodeling &amp; Construction Services</h2>
+      <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(1.8rem,5vw,2.6rem);color:var(--navy);text-align:center;margin-bottom:40px;">Remodeling &amp; Construction Services</h2>
       <div class="svc-grid">
-        <div class="svc-card"><h3>Kitchen &amp; Bathroom Remodeling</h3><p>Full kitchen remodels, bathroom renovations and aging-in-place accessibility updates for homes across Venango, Crawford and Mercer Counties.</p></div>
-        <div class="svc-card"><h3>Decks &amp; Porches</h3><p>Deck building, deck replacement and porch repair built to handle Western PA winters and look great every summer.</p></div>
-        <div class="svc-card"><h3>Pole Barns &amp; Garages</h3><p>Post-frame pole barns, detached garages and storage buildings for farms, hobby shops and rural properties throughout NW Pennsylvania.</p></div>
-        <div class="svc-card"><h3>Home Additions</h3><p>Room additions, in-law suites and expansions planned and built right — with clear estimates before any work begins.</p></div>
-        <div class="svc-card"><h3>Painting &amp; Drywall</h3><p>Interior and exterior painting plus drywall repair and installation from local crews who show up, do it right, and clean up after themselves.</p></div>
-        <div class="svc-card"><h3>Older Home Renovation</h3><p>Franklin and Oil City are full of beautiful older homes. We connect you with contractors who know how to renovate them without losing their character.</p></div>
+        <div class="svc-card"><h3>Kitchen &amp; Bathroom Remodeling</h3><p>Full kitchen remodels, bathroom renovations and aging-in-place accessibility updates for homes across Venango, Crawford and Mercer Counties.</p><a class="svc-link" href="/kitchen-bathroom-remodeling.html">Learn More &rarr;</a></div>
+        <div class="svc-card"><h3>Decks &amp; Porches</h3><p>Deck building, deck replacement and porch repair built to handle Western PA winters and look great every summer.</p><a class="svc-link" href="/decks-and-porches.html">Learn More &rarr;</a></div>
+        <div class="svc-card"><h3>Pole Barns &amp; Garages</h3><p>Post-frame pole barns, detached garages and storage buildings for farms, hobby shops and rural properties throughout NW Pennsylvania.</p><a class="svc-link" href="/pole-barns-and-garages.html">Learn More &rarr;</a></div>
+        <div class="svc-card"><h3>Home Additions</h3><p>Room additions, in-law suites and expansions planned and built right — with clear estimates before any work begins.</p><a class="svc-link" href="/home-additions.html">Learn More &rarr;</a></div>
+        <div class="svc-card"><h3>Painting &amp; Drywall</h3><p>Interior and exterior painting plus drywall repair and installation from local crews who show up, do it right, and clean up after themselves.</p><a class="svc-link" href="/painting-and-drywall-services.html">Learn More &rarr;</a></div>
+        <div class="svc-card"><h3>Older Home Renovation</h3><p>Franklin and Oil City are full of beautiful older homes. We connect you with contractors who know how to renovate them without losing their character.</p><a class="svc-link" href="/older-home-renovation.html">Learn More &rarr;</a></div>
       </div>
     </section>
 
     <!-- BLOG LINKS -->
-    <section class="blog-section" aria-labelledby="blog-heading">
+    <section class="blog-section">
       <div class="blog-inner">
         <div class="section-label">From Our Blog</div>
-        <h2 id="blog-heading" style="font-family:'Bebas Neue',sans-serif;font-size:clamp(1.8rem,5vw,2.6rem);color:var(--navy);margin-bottom:8px;">Local Homeowner Guides</h2>
+        <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(1.8rem,5vw,2.6rem);color:var(--navy);margin-bottom:8px;">Local Homeowner Guides</h2>
         <div class="blog-grid">
+          <a class='blog-card' href='/summer-deck-siding-check-nwpa.html'>
+            <p class="blog-tag">Home Care</p>
+            <h3>The Ten Minute Deck and Siding Check Every Homeowner Should Do This Summer</h3>
+            <p>A soft board or a wobbly rail is rarely just cosmetic. A simple summer walk around that saves NW PA homeowners real money.</p>
+            <span class="blog-read">Read the Guide →</span>
+          </a>
           <a class='blog-card' href='/painting-cost-cranberry-pa'>
             <p class="blog-tag">Painting</p>
             <h3>How Much Does It Cost to Hire a Painter in Cranberry, PA?</h3>
@@ -325,9 +334,9 @@
       </div>
     </section>
 
-    <section class="how-section" aria-labelledby="how-heading">
+    <section class="how-section">
       <div class="section-label">Simple Process</div>
-      <h2 id="how-heading">How It Works</h2>
+      <h2>How It Works</h2>
       <div class="steps">
         <div class="step"><div class="step-num" aria-hidden="true">1</div><h3>Fill Out the Form</h3><p>Takes under a minute. Tell us your project type and location.</p></div>
         <div class="step"><div class="step-num" aria-hidden="true">2</div><h3>We Match You</h3><p>We connect you with a vetted local contractor in your area.</p></div>
@@ -335,9 +344,9 @@
       </div>
     </section>
 
-    <section class="areas-section" aria-labelledby="areas-heading">
+    <section class="areas-section">
       <div class="section-label">Service Areas</div>
-      <h2 id="areas-heading">Contractors Near You in Butler, PA & NW Pennsylvania</h2>
+      <h2>Contractors Near You in Butler, PA & NW Pennsylvania</h2>
       <p class="areas-lead">As Amish Contractors Butler, PA homeowners rely on, we handle kitchen remodeling and pole barns in Butler and Cranberry Township, plus deck building and remodeling across Venango, Crawford, Warren, Forest, Clarion and Mercer Counties — projects of every size throughout northwest Pennsylvania.</p>
       <div class="town-list">
         <span class="town">Butler</span> <span class="town">Cranberry</span> <span class="town">Slippery Rock</span> <span class="town">Zelienople</span> <span class="town">Grove City</span> <span class="town">Franklin</span> <span class="town">Oil City</span> <span class="town">Sugarcreek</span> <span class="town">Seneca</span> <span class="town">Emlenton</span> <span class="town">Meadville</span> <span class="town">Titusville</span> <span class="town">Cambridge Springs</span> <span class="town">Conneaut Lake</span> <span class="town">Cochranton</span> <span class="town">Warren</span> <span class="town">Youngsville</span> <span class="town">Tionesta</span> <span class="town">Marienville</span> <span class="town">Clarion</span> <span class="town">Knox</span> <span class="town">Hermitage</span> <span class="town">Sharon</span> <span class="town">Greenville</span> <span class="town">Mercer</span> <span class="town">Sandy Lake</span>
