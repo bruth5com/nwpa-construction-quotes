@@ -195,7 +195,11 @@
       .form-group.full { grid-column: 1; }
       .photo-grid-3 { grid-template-columns: 1fr; }
     }
-  </style>
+/* Accessibility: visible keyboard focus and minimum interactive target size. */
+:where(a, button, input, select, textarea):focus-visible { outline: 3px solid #0b63ce; outline-offset: 3px; box-shadow: 0 0 0 2px #fff; }
+:where(button, input:not([type="checkbox"]):not([type="radio"]), select) { min-height: 44px; }
+@media (pointer: coarse) { nav a, a[class*="btn"] { display: inline-flex; align-items: center; min-height: 44px; } }
+</style>
 </head>
 <body>
 
@@ -262,9 +266,9 @@
         <p class="photo-label">Local Crews. Real Work.</p>
         <p class="photo-sub">Quality craftsmanship in Butler, PA and across NW Pennsylvania — from Amish workmanship to interior remodeling and home repairs.</p>
         <div class="photo-grid-3">
-          <img src="Amish_pics2.png" alt="Quality Amish workmanship — decks, siding, roofing and home repairs in NW Pennsylvania" loading="lazy">
-          <img src="og-image.jpg" alt="Interior painting and drywall contractors serving NW Pennsylvania" loading="lazy">
-          <img src="og-image__2_.jpg" alt="Home repair and siding contractors in NW Pennsylvania" loading="lazy">
+          <img src="Amish_pics2.png" alt="Quality Amish workmanship — decks, siding, roofing and home repairs in NW Pennsylvania" width="1408" height="768" loading="lazy" decoding="async">
+          <img src="og-image.jpg" alt="Interior painting and drywall contractors serving NW Pennsylvania" width="1024" height="1024" loading="lazy" decoding="async">
+          <img src="og-image__2_.jpg" alt="Home repair and siding contractors in NW Pennsylvania" width="1024" height="1024" loading="lazy" decoding="async">
         </div>
       </div>
     </div>
