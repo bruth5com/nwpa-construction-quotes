@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NLDVJK76Z8"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NLDVJK76Z8');</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="google-site-verification" content="rJ_PZtomOPbjMV8UZL2GUPkhbNdfXmxlbO3iGi9ioyI" />
@@ -12,6 +14,10 @@
   <meta property="og:url" content="https://nwpa-construction-quotes.netlify.app/" />
   <meta property="og:description" content="Amish Contractors Butler, PA — remodeling, decks, pole barns and home additions. Free estimates. Call (814) 209-8304." />
   <meta property="og:image" content="https://nwpa-construction-quotes.netlify.app/og-image.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Amish Contractors in Butler &amp; NW Pennsylvania | Estimates" />
+  <meta name="twitter:description" content="Remodeling, decks, pole barns and home additions across NW Pennsylvania. Request a free estimate." />
+  <meta name="twitter:image" content="https://nwpa-construction-quotes.netlify.app/og-image.jpg" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -202,6 +208,15 @@
 :where(button, input:not([type="checkbox"]):not([type="radio"]), select) { min-height: 44px; }
 @media (pointer: coarse) { nav a, a[class*="btn"] { display: inline-flex; align-items: center; min-height: 44px; } }
 </style>
+  <style>
+    .mobile-action { display:none; }
+    @media (max-width:700px) {
+      body { padding-bottom:72px; }
+      .mobile-action { position:fixed; z-index:1000; left:0; right:0; bottom:0; display:grid; grid-template-columns:1fr 1fr; background:#14243a; box-shadow:0 -4px 18px rgba(0,0,0,.25); }
+      .mobile-action a { min-height:60px; display:flex; align-items:center; justify-content:center; color:#fff; font-weight:700; text-decoration:none; }
+      .mobile-action a:last-child { background:#d99a25; color:#14243a; }
+    }
+  </style>
 </head>
 <body>
 
@@ -232,12 +247,14 @@
         <div class="section-label">Get Started</div>
         <h2>Request Your Free Estimate</h2>
         <p class="sub">Serving Butler County and all of NW Pennsylvania — Venango, Crawford, Warren, Forest, Clarion &amp; Mercer Counties. A local contractor will follow up within 24 hours.</p>
-        <form action="https://formspree.io/f/xbdeddrr" method="POST">
+        <form action="https://formspree.io/f/xbdeddrr" method="POST" data-thank-you="/thank-you.html">
+          <input type="hidden" name="_next" value="https://nwpa-construction-quotes.netlify.app/thank-you.html" />
           <div class="form-grid">
             <div class="form-group"><label for="fname">First Name</label><input type="text" id="fname" name="first_name" autocomplete="given-name" placeholder="John" required /></div>
             <div class="form-group"><label for="lname">Last Name</label><input type="text" id="lname" name="last_name" autocomplete="family-name" placeholder="Smith" required /></div>
             <div class="form-group"><label for="phone">Phone Number</label><input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="(814) 555-0100" required /></div>
             <div class="form-group"><label for="zip">ZIP Code</label><input type="text" id="zip" name="zip_code" autocomplete="postal-code" inputmode="numeric" placeholder="16301" required /></div>
+            <div class="form-group full"><label for="email">Email Address</label><input type="email" id="email" name="email" autocomplete="email" placeholder="you@example.com" required /></div>
             <div class="form-group full"><label for="service">Type of Project</label>
               <select id="service" name="project_type" required>
                 <option value="" disabled selected>Select one...</option>
@@ -258,7 +275,7 @@
             <div class="form-group full"><button type="submit" class="submit-btn">Request My Free Estimate →</button></div>
           </div>
         </form>
-        <p class="privacy-note">Your info is never sold or shared. We only use it to connect you with a vetted local contractor.</p>
+        <p class="privacy-note">We use your information only to respond and connect you with a vetted local contractor. See our <a href="/privacy.html">Privacy Policy</a>.</p>
       </div>
     </section>
 
@@ -397,8 +414,31 @@
   <footer>
     <p>Powered by <a href="https://tableturndigital.net">TableTurn Digital</a> &mdash; Helping NW Pennsylvania Businesses Grow Online</p>
     <p style="margin-top:8px;"><a href="tel:8142098304">(814) 209-8304</a></p>
+    <p style="margin-top:8px;"><a href="/privacy.html">Privacy Policy</a></p>
     <p style="margin-top:8px;font-size:0.75rem;color:rgba(255,255,255,0.25);">© 2026 TableTurn Digital · Franklin, PA · Venango County</p>
   </footer>
+
+  <div class="mobile-action" aria-label="Quick actions">
+    <a href="tel:8142098304">Call Now</a>
+    <a href="#get-estimate">Free Estimate</a>
+  </div>
+  <script>
+  document.querySelectorAll('form[data-thank-you]').forEach(function (form) {
+    form.addEventListener('submit', async function (event) {
+      event.preventDefault();
+      const button = form.querySelector('[type="submit"]');
+      if (button) { button.disabled = true; button.textContent = 'Sending...'; }
+      try {
+        const response = await fetch(form.action, { method:'POST', body:new FormData(form), headers:{ Accept:'application/json' } });
+        if (!response.ok) throw new Error('Submission failed');
+        window.location.assign(form.dataset.thankYou);
+      } catch (error) {
+        if (button) { button.disabled = false; button.textContent = 'Request My Free Estimate →'; }
+        alert('We could not send your request. Please call (814) 209-8304 or try again.');
+      }
+    });
+  });
+  </script>
 
 </body>
 </html>
